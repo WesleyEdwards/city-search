@@ -22,7 +22,8 @@ class PlaceRepoInMemory(
                 "x-rapidapi-key" to "1a80c5008dmsh9cfd3107d4c60fdp14ea41jsn5ec6952c5235"
             ),
             parameters = mapOf(
-                "city" to city
+                "query" to city,
+                "searchby" to "city"
             )
         )
         return places.map {
@@ -31,7 +32,6 @@ class PlaceRepoInMemory(
         }
     }
     override fun getPlaceFromRepo(): List<Place> {
-        println("the list of cities is $cityList")
         return cityList
     }
 

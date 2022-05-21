@@ -1,6 +1,5 @@
 package com.example.citysearchbetter.utils
 
-import com.example.citysearchbetter.ApiFactory
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -9,7 +8,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val httpClient: OkHttpClient = OkHttpClient.Builder().build()
 
-class RetrofitApiFactory(baseUrl: String = "https://andruxnet-world-cities-v1.p.rapidapi.com"):
+interface ApiFactory {
+    fun <T> createApiService(clazz: Class<T>): T
+}
+
+class RetrofitApiFactory(baseUrl: String):
     ApiFactory {
 
     private val retrofit = Retrofit.Builder()
@@ -20,7 +23,6 @@ class RetrofitApiFactory(baseUrl: String = "https://andruxnet-world-cities-v1.p.
         .build()
 
     override fun <T> createApiService(clazz: Class<T>): T {
-        println("${retrofit.baseUrl()} is the base url")
         return retrofit.create(clazz)
     }
 }

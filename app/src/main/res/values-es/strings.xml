@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">citysearchbetter</string>
+    <string name="no_city_found">No se encuentra ninguna ciudad con ese nombre</string>
+    <string name="search">Buscar</string>
+    <string name="city">ciudad</string>
+</resources>

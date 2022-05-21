@@ -2,26 +2,24 @@ package com.example.citysearchbetter.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import com.example.citysearchbetter.CitySearchView
-import com.example.citysearchbetter.R
-import com.example.citysearchbetter.info.PlaceRepo
-import com.example.citysearchbetter.ui.theme.CitysearchbetterTheme
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.citysearchbetter.R
+import com.example.citysearchbetter.info.AppSession
+import com.example.citysearchbetter.info.Session
+import com.example.citysearchbetter.ui.theme.CitysearchbetterTheme
 
 @Composable
 fun TabNav(
-    placeRepo: PlaceRepo,
+    sessionInfo: AppSession,
     navigateTo: (route: String) -> Unit
 ) {
     var tabIndex: Int by rememberSaveable { mutableStateOf(0) }
@@ -35,18 +33,21 @@ fun TabNav(
     val iconResources = listOf(
         R.drawable.ic_baseline_home_24,
         R.drawable.ic_baseline_search_24,
-        R.drawable.ic_baseline_home_24,
+        R.drawable.ic_baseline_note_24,
     )
 
     CitysearchbetterTheme {
         Column(Modifier.fillMaxWidth(1f)) {
             Box(Modifier.weight(1f)) {
                 when (tabIndex) {
-                    0 -> home()
-                    1 -> CitySearchView(placeRepo)
-                    2 -> notes()
+                    0 -> HomeView()
+                    1 -> CitySearchView(sessionInfo)
+                    2 -> NotesView()
                 }
             }
+
+            Divider()
+
             TabRow(selectedTabIndex = tabIndex) {
                 titleResource.forEachIndexed { index, resource ->
                     Tab(selected = index == tabIndex,
@@ -66,5 +67,4 @@ fun TabNav(
             }
         }
     }
-
 }

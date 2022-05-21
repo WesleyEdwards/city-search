@@ -9,14 +9,15 @@ interface PlaceRepo {
     fun getPlaceFromRepo(): List<Place>
 }
 class PlaceRepoInMemory(
-    private val api: PlaceApi
+    private val placesApi: PlaceApi,
+    private val worldCitiesApi: WorldCitiesApi
 ): PlaceRepo {
 
     private var cityList: MutableList<Place> = mutableListOf()
 
 
     override fun getPlaceByCity(city: String): Single<List<Place>> {
-        val places = api.getByCity(
+        val places = worldCitiesApi.getByCity(
             headers = mapOf(
                 "x-rapidapi-host" to "andruxnet-world-cities-v1.p.rapidapi.com",
                 "x-rapidapi-key" to "1a80c5008dmsh9cfd3107d4c60fdp14ea41jsn5ec6952c5235"
@@ -31,6 +32,7 @@ class PlaceRepoInMemory(
             it
         }
     }
+
     override fun getPlaceFromRepo(): List<Place> {
         return cityList
     }

@@ -11,12 +11,11 @@ interface PlaceApi {
     @GET("/countries")
     fun getListOfCountries(
         @HeaderMap headers: Map<String, String>,
-    ): Single<CountryResponse>
+    ): Single<CountryRefResponse>
 
     @GET("/countries/{countryCode}")
     fun getCountrySpecificInfo(
         @Path("countryCode") countryCode: String,
         @HeaderMap headers: Map<String, String>,
-        @QueryMap parameters: Map<String, String>
-    ): Single<Countries>
+    ): Single<Country>
 }

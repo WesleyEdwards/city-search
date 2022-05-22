@@ -8,3 +8,17 @@ val previewSession = object : AppSession {
         get() = TODO("Not yet implemented")
 
 }
+
+val previewCountry = Country(
+    0L,
+    "USA",
+    "",
+    Capital("", 0L),
+    "",
+    0L,
+    Flag(""),
+    "",
+    Currency("", "")
+
+
+)

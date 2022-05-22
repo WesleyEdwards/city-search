@@ -2,10 +2,6 @@ package com.example.citysearchbetter.info
 
 import com.google.gson.annotations.SerializedName
 
-data class CountryResponse(
-    val countries: List<Country>
-)
-
 data class Country(
     @SerializedName("geonameid") val geonameId: Long,
     val name: String,

@@ -40,7 +40,7 @@ fun TabNav(
         Column(Modifier.fillMaxWidth(1f)) {
             Box(Modifier.weight(1f)) {
                 when (tabIndex) {
-                    0 -> HomeView()
+                    0 -> HomeView(sessionInfo, navigateTo)
                     1 -> CitySearchView(sessionInfo)
                     2 -> NotesView()
                 }

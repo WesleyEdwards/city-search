@@ -48,7 +48,7 @@ fun CitySearchView(
         Text(
             modifier = Modifier
                 .padding(8.dp),
-            text = "CitySearch",
+            text = stringResource(R.string.city_search),
             style = MaterialTheme.typography.h3
         )
 
@@ -66,7 +66,7 @@ fun CitySearchView(
 
             Button(
                 modifier = Modifier
-                    .fillMaxWidth(1f)
+                    .fillMaxWidth()
                     .height(IntrinsicSize.Max),
                 onClick = {
                     repo.getPlaceByCity(userInput)

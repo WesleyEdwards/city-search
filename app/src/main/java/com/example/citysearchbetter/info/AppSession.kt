@@ -5,5 +5,5 @@ interface AppSession {
 }
 
 class Session(
-    override val placeRepo: PlaceRepo
+    override val placeRepo: PlaceRepo,
 ): AppSession

@@ -4,4 +4,5 @@
     <string name="no_city_found">No se encuentra ninguna ciudad con ese nombre</string>
     <string name="search">Buscar</string>
     <string name="city">ciudad</string>
+    <string name="country_list">Lista de Paises</string>
 </resources>

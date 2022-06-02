@@ -13,9 +13,9 @@ private val DarkColorPalette = darkColors(
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
+    primary = primary,
     primaryVariant = Purple700,
-    secondary = Teal200
+    secondary = secondary
 
     /* Other default colors to override
     background = Color.White,
@@ -32,11 +32,12 @@ fun CitysearchbetterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+//    val colors = if (darkTheme) {
+//        DarkColorPalette
+//    } else {
+//        LightColorPalette
+//    }
+    val colors = LightColorPalette
 
     MaterialTheme(
         colors = colors,

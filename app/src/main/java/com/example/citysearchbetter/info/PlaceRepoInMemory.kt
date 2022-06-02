@@ -51,7 +51,6 @@ class PlaceRepoInMemory(
 
     override fun getIndividualCountryInfo(countryId: String): Single<Country> {
         return if (specificCountries.any { it.code == countryId }) {
-            println("API is not called. YAY!")
             Single.just(specificCountries.first { it.code == countryId })
         } else {
             placesApi.getCountrySpecificInfo(
@@ -69,12 +68,7 @@ class PlaceRepoInMemory(
     }
 
     override fun getCountriesFromRepo(filterName: String): List<CountryRef> {
-        return countryList.filter {
-            it.name.subSequence(0, filterName.length)
-                .map { c -> c.lowercase() } ==
-                    filterName
-                        .map { c -> c.lowercase() }
-        }
+        return countryList
     }
 
     override fun getCountryFromRepo(countryId: String): Country {

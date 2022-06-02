@@ -1,6 +1,5 @@
 package com.example.citysearchbetter.views
 
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -85,8 +84,6 @@ fun HomeView(
                     .height(IntrinsicSize.Max),
                 onClick = {
                     keyboardController?.hide()
-                    countryList.clear()
-                    countryList.addAll(session.placeRepo.getCountriesFromRepo(userInput))
                 }
             ) {
                 Text(stringResource(R.string.search))
@@ -94,7 +91,13 @@ fun HomeView(
         }
 
         LazyColumn {
-            countryList.forEach {
+            countryList.filter {
+                it.name.length >= userInput.length
+            }.filter {
+                it.name.subSequence(0, userInput.length)
+                    .map { c -> c.lowercase() } ==
+                        userInput.map { c -> c.lowercase() }
+            }.forEach {
                 item { CountryCard(it, navigateTo, session) }
             }
         }

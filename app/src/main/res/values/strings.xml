@@ -4,4 +4,5 @@
     <string name="search">Search</string>
     <string name="city">city</string>
     <string name="country_list">Country List</string>
+    <string name="city_search">City Search</string>
 </resources>

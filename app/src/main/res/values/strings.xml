@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">citysearchbetter</string>
-    <string name="no_city_found">No city with that character sequence was found.</string>
-    <string name="search">Search</string>
-    <string name="city">city</string>
-    <string name="country_list">Country List</string>
-    <string name="city_search">City Search</string>
-</resources>
